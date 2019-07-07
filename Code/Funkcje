@@ -1,4 +1,4 @@
-```C++
+```c++
 //mapowanie double do int
 int liczbadiod(double val) {
 	int liczba;
