@@ -1,3 +1,4 @@
+```C++
 //mapowanie double do int
 int liczbadiod(double val) {
 	int liczba;
@@ -59,3 +60,4 @@ void blinkPWM(uint8_t nazwa, int wartosc, int przerwa) {
 double convert_double(double val, double inmin, double inmax, double outmin, double outmax) {
 	return((val - inmin)*(outmax - outmin) / (inmax - inmin) + outmin);
 }
+```
