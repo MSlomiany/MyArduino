@@ -1,3 +1,15 @@
+//test przycisku
+//ButtonTest(nazwa_wejścia_przycisku, nazwa_wyjścia_efektora)
+void ButtonTest(uint8_t nazwa_button,uint8_t nazwa_efektor) {
+	int sensor = digitalRead(nazwa_button);
+	if (sensor == HIGH) {
+		digitalWrite(nazwa_efektor, HIGH);
+	}
+	else {
+		digitalWrite(nazwa_efektor, LOW);
+	}
+}
+
 //mapowanie double do int
 int liczbadiod(double val) {
 	int liczba;
