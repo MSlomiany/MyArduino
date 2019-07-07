@@ -1,0 +1,61 @@
+//mapowanie double do int
+int liczbadiod(double val) {
+	int liczba;
+	if (val <= 1) {
+		liczba = 1;
+	}
+	else if (val > 1 && val <= 2) {
+		liczba = 2;
+	}
+	else if (val > 2 && val <= 3) {
+		liczba = 3;
+	}
+	else if (val > 3 && val <= 4) {
+		liczba = 4;
+	}
+	else if (val > 4 && val <= 5) {
+		liczba = 5;
+	}
+	return liczba;
+}
+
+//włączenie diody
+//set(nazwa_wyjścia)
+void set(uint8_t nazwa) {
+	digitalWrite(nazwa, HIGH);
+}
+
+//wyłączenie diody
+//reset(nazwa_wyjścia)
+void reset(uint8_t nazwa) {
+	digitalWrite(nazwa, LOW);
+}
+
+//włączanie diody PWM
+//setPWM(nazwa_wyjścia, wartość_wypełnienia(0-255))
+void setPWM(uint8_t nazwa, int wartosc) {
+	analogWrite(nazwa, wartosc);
+}
+
+//miganie diody 
+//blink(nazwa_wyjścia, czas_świecenia)
+void blink(uint8_t nazwa, int przerwa) {
+	digitalWrite(nazwa, HIGH); //włącza diodę
+	delay(przerwa); //czas świecenia
+	digitalWrite(nazwa, LOW); //wyłącza diodę
+}
+ 
+//miganie przygaszonej diody PWM
+//blinkPWM(nazwa_wejścia, wartość_wypełnienia(0-255), czas_świecenia)
+void blinkPWM(uint8_t nazwa, int wartosc, int przerwa) {
+	analogWrite(nazwa, wartosc);
+	delay(przerwa);
+	analogWrite(nazwa, 0);
+}
+
+//funkcja konwertuje wartość z jednego zakresu na drugi
+//convert_double(wartość, dolna_granica_1, górna_granica_1, dolna_granica_2, górna_granica_2)
+//zwraca wynik w zmiennej typu double
+double convert_double(double val, double inmin, double inmax, double outmin, double outmax) {
+	return((val - inmin)*(outmax - outmin) / (inmax - inmin) + outmin);
+}
